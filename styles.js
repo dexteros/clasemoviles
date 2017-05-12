@@ -5,17 +5,11 @@ export const styles = StyleSheet.create({
   contenedor: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FFFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  inputText: {                  
+      color: "#444",
+      fontSize: 20,
+      backgroundColor: '#fff',
   },
 });
