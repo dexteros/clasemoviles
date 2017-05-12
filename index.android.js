@@ -8,7 +8,8 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 
 import  { Saludo }  from './componentes/Saludo';
@@ -18,11 +19,26 @@ export default class clase1 extends Component {
 
   mensaje = "Hola Pedro Perez";
 
+
+  onPressLearnMore = (nombre, apellido) => {
+    alert('Hola...'+nombre + " " + apellido);
+  }
+
+  prueba(nombre,apellido){
+    alert(nombre+" "+apellido);
+  }
+
   render() {
 
     return (      
       <View style={styles.contenedor}>
           <Text>Hola Mundo</Text>
+        <Button  
+          color='#FF0000'        
+          onPress={this.onPressLearnMore.bind(this,'Pedro','Perez')}
+          title="Presionne aquí"          
+          accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     );
   }
