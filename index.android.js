@@ -10,11 +10,16 @@ import {
   Text,
   View,
   Button,
-  TextInput
+  TextInput,
+  ToastAndroid,
+  Vibration,
+  Image
 } from 'react-native';
 
 import  { Saludo }  from './componentes/Saludo';
 import { styles } from './styles';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class clase1 extends Component {  
 
@@ -34,11 +39,29 @@ export default class clase1 extends Component {
     alert(nombre+" "+apellido);
   }
 
+
+  mostrarToast = (mensaje) => {
+  	//ToastAndroid.show(mensaje, ToastAndroid.LONG);
+  	ToastAndroid.showWithGravity('All Your Base Are Belong To Us', ToastAndroid.SHORT, ToastAndroid.CENTER);
+  }
+
+  vibrar = () => {
+  	Vibration.vibrate([0,500]);
+  }
+
+
+
   render() {
 
     return (      
       <View style={styles.contenedor}>
-        <Text>Hola Mundo</Text>
+      	<Image source={require('./imagen.png')} style={{width: 150, height: 150}} />
+
+      	<Image source={{uri:'http://www.aldia.co/sites/default/files/miakhalifadet.jpg'}} style={{width: 150, height: 150}} >
+      		<Text style={{color:'#fff',fontSize:15, backgroundColor:'rgba(255,25,120,0.5)'}}>Mia Kalifa</Text>
+      	</Image>
+
+        
         <View>
         <TextInput
           ref="1"
@@ -71,12 +94,23 @@ export default class clase1 extends Component {
           returnKeyType="done"
         />
         </View>
-        <Button  
+        <Button 
           color='#FF0000'        
-          onPress={this.onPressLearnMore.bind(this,'Pedro','Perez')}
-          title="Presionne aquí"          
+          onPress={this.mostrarToast.bind(this,'Mensaje Toast')}
+          title="Mostrar Toast"          
           accessibilityLabel="Learn more about this purple button"
         />
+        <Icon name="heart-outline" size={30} color="#900" />
+
+        <Button 
+          color='#FF0000'        
+          onPress={this.vibrar.bind(this)}
+          title="Vibración"          
+          accessibilityLabel="Learn more about this purple button"
+        />
+
+        <Icon name="heart-outline" size={30} color="#900" />
+
       </View>
     );
   }
